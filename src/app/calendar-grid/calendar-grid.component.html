@@ -1,0 +1,22 @@
+<mat-grid-list cols="7">
+  <mat-grid-tile class="day-box" *ngFor="let day of days">
+    <mat-grid-tile-header>
+      {{ day + 1 }}
+    </mat-grid-tile-header>
+    <div class="grid-content">
+      <div *ngFor="let event of events">
+        <div
+          *ngIf="eventRange(day + 1, event)"
+          class="event-content"
+          [ngClass]="'event-' + event.type"
+          [class.event-start]="isEventDate(day + 1, event.startDate)"
+          [class.event-end]="isEventDate(day + 1, event.endDate)"
+        >
+        <span *ngIf="isEventDate(day + 1, event.startDate)">
+          {{ event.title }}
+        </span>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -2,6 +2,75 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "Event",
+            "id": "interface-Event-38df9ec81a864fa6722c8e2d600e5beb38ebe4b1b8b5ee49d4233a40c5ba9f5cd0ca478c6896d63812e81e809145558c4dfdeae6d6abe8bbf85a68d851cc452a",
+            "file": "src/app/calendar-grid/calendar-grid.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MatGridListModule } from '@angular/material/grid-list';\n\ninterface Event {\n  id: number;\n  type: 'instructor' | 'evaluator' | 'FTI' | 'Draft';\n  title: string;\n  description: string;\n  startDate: Date;\n  endDate: Date;\n}\n\n@Component({\n  selector: 'app-calendar-grid',\n  standalone: true,\n  imports: [CommonModule, MatGridListModule],\n  templateUrl: './calendar-grid.component.html',\n  styleUrls: ['./calendar-grid.component.scss']\n})\nexport class CalendarGridComponent {\n  days = Array.from(Array(30).keys());\n\n\n  @Input() events: Event[] = [\n    {\n      id: 1,\n      type: 'instructor',\n      title: 'Instructor Event 1',\n      description: 'Instructor Description',\n      startDate: new Date('2023/10/24'),\n      endDate: new Date('2023/10/26')\n    }\n  ]\n\n  eventRange(day: number, event: Event): boolean {\n    return (event.startDate.getDate() <= day) && (day <= event.endDate.getDate())\n  }\n\n  isEventDate(day: number, date: Date): boolean {\n    return day === date.getDate();\n  }\n\n}\n",
+            "properties": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "endDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "startDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"instructor\" | \"evaluator\" | \"FTI\" | \"Draft\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "RadioOptions",
             "id": "interface-RadioOptions-4777edb6ff10fe7eddb24684a72dfdd787b4df844cfba892a4d2bca7852437fa6f22d3a20b49d7dde1741c6cf952b483f49948cb74ab4bfedddccaa0522c299e",
             "file": "src/stories/radio.component.ts",
@@ -241,6 +310,167 @@
                     }
                 }
             }
+        },
+        {
+            "name": "CalendarGridComponent",
+            "id": "component-CalendarGridComponent-38df9ec81a864fa6722c8e2d600e5beb38ebe4b1b8b5ee49d4233a40c5ba9f5cd0ca478c6896d63812e81e809145558c4dfdeae6d6abe8bbf85a68d851cc452a",
+            "file": "src/app/calendar-grid/calendar-grid.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-calendar-grid",
+            "styleUrls": [
+                "./calendar-grid.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./calendar-grid.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "events",
+                    "defaultValue": "[\n    {\n      id: 1,\n      type: 'instructor',\n      title: 'Instructor Event 1',\n      description: 'Instructor Description',\n      startDate: new Date('2023/10/24'),\n      endDate: new Date('2023/10/26')\n    }\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "Event[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "days",
+                    "defaultValue": "Array.from(Array(30).keys())",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "eventRange",
+                    "args": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "isEventDate",
+                    "args": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "date",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "Date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatGridListModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MatGridListModule } from '@angular/material/grid-list';\n\ninterface Event {\n  id: number;\n  type: 'instructor' | 'evaluator' | 'FTI' | 'Draft';\n  title: string;\n  description: string;\n  startDate: Date;\n  endDate: Date;\n}\n\n@Component({\n  selector: 'app-calendar-grid',\n  standalone: true,\n  imports: [CommonModule, MatGridListModule],\n  templateUrl: './calendar-grid.component.html',\n  styleUrls: ['./calendar-grid.component.scss']\n})\nexport class CalendarGridComponent {\n  days = Array.from(Array(30).keys());\n\n\n  @Input() events: Event[] = [\n    {\n      id: 1,\n      type: 'instructor',\n      title: 'Instructor Event 1',\n      description: 'Instructor Description',\n      startDate: new Date('2023/10/24'),\n      endDate: new Date('2023/10/26')\n    }\n  ]\n\n  eventRange(day: number, event: Event): boolean {\n    return (event.startDate.getDate() <= day) && (day <= event.endDate.getDate())\n  }\n\n  isEventDate(day: number, date: Date): boolean {\n    return day === date.getDate();\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use '@angular/material' as mat;\n\n.day-box {\n  border: 1px solid black;\n}\n\n.event-box {\n  min-width: fit-content;\n}\n\n.event-content {\n  padding: 5px 0;\n  width: 135px;\n  height: 18.5px;\n}\n\n.event-start {\n  border-top-left-radius: 5px;\n  border-bottom-left-radius: 5px;\n  padding-left: 5px;\n  margin-left: 15px;\n}\n\n.event-end {\n  border-top-right-radius: 5px;\n  border-bottom-right-radius: 5px;\n  padding-right: 5px;\n  margin-right: 15px;\n}\n\n.event-instructor {\n  background: mat.get-color-from-palette(mat.$blue-palette, 300);\n}\n\n.event-evaluator{\n  background: mat.get-color-from-palette(mat.$green-palette, 300);\n}\n\n.event-FTI {\n  background: mat.get-color-from-palette(mat.$red-palette, 300);\n}\n\n.event-Draft {\n  background: mat.get-color-from-palette(mat.$grey-palette, 300);\n}\n",
+                    "styleUrl": "./calendar-grid.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-grid-list cols=\"7\">\n  <mat-grid-tile class=\"day-box\" *ngFor=\"let day of days\">\n    <mat-grid-tile-header>\n      {{ day + 1 }}\n    </mat-grid-tile-header>\n    <div *ngFor=\"let event of events\" class=\"event-box\">\n      <div\n        *ngIf=\"eventRange(day + 1, event)\"\n        class=\"event-content\"\n        [ngClass]=\"'event-' + event.type\"\n        [class.event-start]=\"isEventDate(day + 1, event.startDate)\"\n        [class.event-end]=\"isEventDate(day + 1, event.endDate)\"\n      >\n      <span *ngIf=\"isEventDate(day + 1, event.startDate)\">\n        {{ event.title }}\n      </span>\n      </div>\n    </div>\n  </mat-grid-tile>\n</mat-grid-list>\n"
         },
         {
             "name": "CustomCheckboxComponent",
@@ -807,6 +1037,16 @@
                 "defaultValue": "{\n  checkboxChanged: action('checkboxChanged'),\n}"
             },
             {
+                "name": "AllEvent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    events: [\n      {\n        id: 1,\n        type: 'instructor',\n        title: 'Instructor Event 1',\n        description: 'Instructor Description',\n        startDate: new Date('2023/10/24'),\n        endDate: new Date('2023/10/26')\n      },\n      {\n        id: 2,\n        type: 'evaluator',\n        title: 'Evaluator Event 1',\n        description: 'Evaluator Description',\n        startDate: new Date('2023/10/02'),\n        endDate: new Date('2023/10/02')\n      },\n      {\n        id: 3,\n        type: 'FTI',\n        title: 'FTI Event 1',\n        description: 'FTI Description',\n        startDate: new Date('2023/10/05'),\n        endDate: new Date('2023/10/08')\n      }\n    ]\n  },\n}"
+            },
+            {
                 "name": "Checked",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -947,6 +1187,16 @@
                 "defaultValue": "{\n  title: 'Example/CustomCheckboxComponent',\n  component: CustomCheckboxComponent,\n  decorators: [\n    moduleMetadata({\n      declarations: [],\n      imports: [MatCheckboxModule],\n    })\n  ],\n  tags: ['autodocs'],\n  render: (args: CustomCheckboxComponent) => ({\n    props: {\n      ...args,\n      checkboxChanged: actionsData.checkboxChanged\n    },\n  }),\n  argTypes: {\n    checkboxChanged: { action: 'checkboxChanged' }\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CalendarGridComponent>",
+                "defaultValue": "{\n  title: 'Example/CalendarGridComponent',\n  component: CalendarGridComponent,\n  decorators: [\n    moduleMetadata({\n      declarations: [],\n      imports: [MatGridListModule],\n    })\n  ],\n  tags: ['autodocs'],\n  render: (args: CalendarGridComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1043,6 +1293,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CalendarGridComponent>",
+                "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
@@ -1097,6 +1358,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<CustomCheckboxComponent>",
                     "defaultValue": "{\n  title: 'Example/CustomCheckboxComponent',\n  component: CustomCheckboxComponent,\n  decorators: [\n    moduleMetadata({\n      declarations: [],\n      imports: [MatCheckboxModule],\n    })\n  ],\n  tags: ['autodocs'],\n  render: (args: CustomCheckboxComponent) => ({\n    props: {\n      ...args,\n      checkboxChanged: actionsData.checkboxChanged\n    },\n  }),\n  argTypes: {\n    checkboxChanged: { action: 'checkboxChanged' }\n  },\n}"
+                }
+            ],
+            "src/app/calendar-grid/calendar-grid.stories.ts": [
+                {
+                    "name": "AllEvent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    events: [\n      {\n        id: 1,\n        type: 'instructor',\n        title: 'Instructor Event 1',\n        description: 'Instructor Description',\n        startDate: new Date('2023/10/24'),\n        endDate: new Date('2023/10/26')\n      },\n      {\n        id: 2,\n        type: 'evaluator',\n        title: 'Evaluator Event 1',\n        description: 'Evaluator Description',\n        startDate: new Date('2023/10/02'),\n        endDate: new Date('2023/10/02')\n      },\n      {\n        id: 3,\n        type: 'FTI',\n        title: 'FTI Event 1',\n        description: 'FTI Description',\n        startDate: new Date('2023/10/05'),\n        endDate: new Date('2023/10/08')\n      }\n    ]\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CalendarGridComponent>",
+                    "defaultValue": "{\n  title: 'Example/CalendarGridComponent',\n  component: CalendarGridComponent,\n  decorators: [\n    moduleMetadata({\n      declarations: [],\n      imports: [MatGridListModule],\n    })\n  ],\n  tags: ['autodocs'],\n  render: (args: CalendarGridComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n}"
                 }
             ],
             "src/stories/Radio.stories.ts": [
@@ -1317,6 +1600,19 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "src/app/calendar-grid/calendar-grid.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CalendarGridComponent>",
+                    "file": "src/app/calendar-grid/calendar-grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
@@ -1355,6 +1651,44 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/calendar-grid/calendar-grid.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CalendarGridComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/calendar-grid/calendar-grid.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Event",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/calendar-grid/calendar-grid.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllEvent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/calendar-grid/calendar-grid.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

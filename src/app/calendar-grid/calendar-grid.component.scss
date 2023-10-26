@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+
+
+.mat-grid-tile-content{
+  justify-content: flex-start !important;
+}
+
+.day-box {
+  border: 1px solid black;
+}
+
+.grid-content {
+  width: 100%;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.event-content {
+  cursor: pointer;
+  padding: 5px 0;
+  height: 18.5px;
+}
+
+.event-start {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 5px;
+  margin-left: 15px;
+}
+
+.event-end {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-right: 5px;
+  margin-right: 15px;
+}
+
+.event-instructor {
+  background: mat.get-color-from-palette(mat.$blue-palette, 300);
+}
+
+.event-evaluator{
+  background: mat.get-color-from-palette(mat.$green-palette, 300);
+}
+
+.event-FTI {
+  background: mat.get-color-from-palette(mat.$red-palette, 300);
+}
+
+.event-Draft {
+  background: mat.get-color-from-palette(mat.$grey-palette, 300);
+}
